@@ -71,8 +71,8 @@ env = QT_QPA_PLATFORMTHEME,qt6ct   # for Qt apps# Theme
 exec-once = /usr/lib/polkit-kde-authentication-agent-1 #Polkit to manage passwords
 exec-once = /usr/bin/dunst
 exec-once = waybar # topbar
-exec-once = swww-daemon #wallpaper
-exec-once = swww img /home/prathams/Downloads/bcnr.png
+exec-once = swww-daemon # wallpaper
+exec-once = swww img /home/prathams/Downloads/marat.png
 exec-once = wl-paste --type text --watch cliphist store # clipboard
 exec-once = wl-paste --type image --watch cliphist store
 #exec-once = rm "$HOME/.cache/cliphist/db"   #it'll delete history at every restart    
@@ -137,11 +137,11 @@ general {
     gaps_in = 5
     gaps_out = 5
 
-    border_size = 2
+    border_size = 1
 
     # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-    # col.active_border = rgb(8aadf4) rgb(24273A) rgb(24273A) rgb(8aadf4) 45deg
-    col.active_border = rgb(f0dfd8)
+    #col.active_border = rgb(8aadf4) rgb(24273A) rgb(24273A) rgb(8aadf4) 45deg
+    col.active_border = rgb(A47DAB)
     col.inactive_border = rgb(24273A) rgb(24273A) rgb(24273A) rgb(27273A) 45deg
 
     # Set to true enable resizing windows by clicking and dragging on borders and gaps
@@ -353,16 +353,11 @@ bind = Ctrl, Escape, exec, killall waybar || waybar # toggle waybar
 
 # Screenshot :
 # add --cursor flag to include cursor also, --freeze flag to freeze before selection
-# Screenshot 
-# add --cursor flag to include cursor also, --freeze flag to freeze before selection
-bind = , Print, exec, grimblast --notify copysave screen # Entire screen + clipboard copy
-bind = SUPER, Print, exec, grimblast --notify copysave active # current Active window only + clipboard copy
-bind = SUPER ALT, Print, exec, grimblast --notify copysave area # Select area to take screenshot
 
 # bind = SUPER+SHIFT, S, exec, grim -g "$(slurp)" - | swappy -f -
-# bind = SUPER+SHIFT, S, exec, hyprshot -m window -m active --clipboard-only 
-# bind = SUPER+SHIFT, M, exec, hyprshot -m output -m active --clipboard-only 
-# bind = SUPER+ALT, S, exec, hyprshot -m region -m active --clipboard-only 
+bind = SUPER+SHIFT, S, exec, hyprshot -m window -m active --clipboard-only 
+bind = SUPER+SHIFT, M, exec, hyprshot -m output -m active --clipboard-only 
+bind = SUPER+ALT, S, exec, hyprshot -m region -m active --clipboard-only 
 
 
 
@@ -391,7 +386,7 @@ bind = , XF86MonBrightnessDown, exec, brightnessctl s 5%-
 
 # Example windowrule v1
 # windowrule = float, ^(kitty)$
-# windowrule = float, class:^(jome)$
+windowrule = float, class:^(jome)$
 
 # Workspace Binds
 workspace = 1, monitor:DP-1
@@ -450,9 +445,9 @@ windowrulev2 = float,class:bauh
 windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 
 # layerrule = blur,waybar
-# layerrule = ignorezero,tofi
-# layerrule = ignorezero, dunst
-# layerrule = blur,dunst
+layerrule = ignorezero,tofi
+layerrule = ignorezero, dunst
+layerrule = blur,dunst
 
 # plugins
 plugin {
